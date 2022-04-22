@@ -1,10 +1,12 @@
-import { useState } from "react"
-import Home from "./pages/Home/Home"
+import { Suspense } from "react"
+import { useRoutes } from "react-router-dom"
+import Routes from "./Routes"
 
 const App = () => {
+  const routes = useRoutes(Routes)
   return (
     <div className="App">
-      <Home />
+      <Suspense fallback={() => <div>Loading...</div>}>{routes}</Suspense>
     </div>
   )
 }
